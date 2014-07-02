@@ -22,9 +22,18 @@ int main(int argc, char *argv[]){
         if(e.type == SDL_QUIT) {
           running = 0;
           break;
+        }
+        
+        if(e.type == SDL_KEYUP){
+          if(e.key.keysym.sym == SDLK_a){
+            w.Clear(0,0,0,1);
+          }else{
+            w.Clear(1.0f, 1.0f, 1.0f, 1.0f);
+          }
         }  
       }
-      w.Clear(1.0f, 1.0f, 1.0f, 1.0f);
+      
+      
       w.SwapBuffers();
       if(SDL_GetTicks()-start < 17){
         SDL_Delay(17-(SDL_GetTicks()-start));
