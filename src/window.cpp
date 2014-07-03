@@ -12,8 +12,6 @@ Window::Window(int width, int height, const std::string& title){
   
   glewExperimental = GL_TRUE;
   glewInit();
-  
-  Clear(1,0,0,1);
 }
     
 Window::~Window(){
