@@ -16,21 +16,17 @@ int main(int argc, char *argv[]){
   Window w(600, 450, "2d game");
   Shader s("../shaders/basic");
   Shader red("../shaders/red");
-  Mesh m,n;
+  Mesh q;
   Music music("../assets/music/always.mp3");
-  
-  m.Quad(-0.9, 0.0, 0.05, 0.5);
-  n.Quad(+0.9, 0.0, 0.05, 0.5);
-  
+
+  q.Sphere();
   music.Play();
   
   while(w.running){
       w.Event();
       w.Clear(0.5, 0.5, 0.5,1);
-        red.Use();
-        m.Draw();
         s.Use();
-        n.Draw();
+        q.Draw();
       w.SwapBuffers();
   }
   

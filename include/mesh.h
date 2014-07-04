@@ -3,7 +3,10 @@
 
 #define GLEW_STATIC
 #include <GL/glew.h>
-    
+#include <math.h>
+
+#define PI 3.13159265
+
 class Mesh{
   private:
     GLuint vao;
@@ -15,6 +18,7 @@ class Mesh{
     void Triangle();
     void Draw();
     void Quad(float x, float y, float width, float height);
+    void Sphere();
 };
     
 #endif
