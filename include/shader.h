@@ -12,6 +12,7 @@ class Shader{
     GLuint program;
     Shader(const std::string& path);
     ~Shader();
+    void Use();
 };
     
 #endif

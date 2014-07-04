@@ -7,15 +7,24 @@
 
 #include <window.h>
 #include <shader.h>
+#include <mesh.h>
 
 int main(int argc, char *argv[]){
   Window w(600, 450, "2d game");
   Shader s("../shaders/basic");
-  glUseProgram(s.program);
+  Shader red("../shaders/red");
+  Mesh m;
+  
+  
+  m.Triangle();
   
   while(w.running){
       w.Event();
       w.Clear(1,1,1,1);
+        red.Use();
+        m.Draw();
+        s.Use();
+        m.Draw();
       w.SwapBuffers();
   }
   

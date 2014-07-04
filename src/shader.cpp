@@ -56,4 +56,8 @@ Shader::Shader(const std::string& path){
 Shader::~Shader(){
     
 }
+
+void Shader::Use(){
+  glUseProgram(program);
+}
   
