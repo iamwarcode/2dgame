@@ -12,6 +12,7 @@ Window::Window(int width, int height, const std::string& title){
   
   glewExperimental = GL_TRUE;
   glewInit();
+  running = 1;
 }
     
 Window::~Window(){
@@ -31,5 +32,13 @@ void Window::SwapBuffers(){
 
 void Window::SetTitle(const std::string& title){
   SDL_SetWindowTitle(window, title.c_str());
+}
+
+void Window::Event(){
+  if(SDL_PollEvent(&e)){
+    if(e.type == SDL_QUIT) {
+      running = 0;;
+    }  
+  }
 }
   

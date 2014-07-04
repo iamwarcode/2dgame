@@ -14,12 +14,17 @@ class Window{
   private:
     SDL_Window    *window;
     SDL_GLContext context;
+    SDL_Event e;
   public:
     Window(int width, int height, const std::string& title);
     ~Window();
     void Clear(float r, float g, float b, float a);
     void SwapBuffers();
     void SetTitle(const std::string& title);
+    
+    void Event();
+    
+    int running;
 };
     
 #endif
