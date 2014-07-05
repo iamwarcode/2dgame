@@ -13,7 +13,7 @@ Mesh::~Mesh(){
 void Mesh::Draw(){
   glBindVertexArray(vao);
     
-    glDrawArrays(GL_POINTS, 0, NUM_VERTICES);
+    glDrawArrays(GL_TRIANGLES, 0, NUM_VERTICES);
     
   glBindVertexArray(0);
 }

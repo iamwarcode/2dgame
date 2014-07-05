@@ -20,13 +20,13 @@ int main(int argc, char *argv[]){
   Window w(600, 450, "2d game");
   Shader s("../shaders/basic");
   Shader red("../shaders/red");
-  Mesh t;
+  Mesh t,q;
   Music music("../assets/music/always.mp3");
   
   music.Play();
   
-  t.Sphere();
-  
+  t.Quad(0,0,2,2);
+  q.Quad(0,0,0.5, 0.5);
   glm::mat4 model;
   glm::mat4 view;
   glm::mat4 proj;
@@ -47,13 +47,10 @@ int main(int argc, char *argv[]){
   while(w.running){
       w.Event();
       w.Clear(0, 0.5, 0.5,1);
-        s.Use();
-        model = glm::rotate(model, 1.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-        glUniformMatrix4fv(m, 1, GL_FALSE, glm::value_ptr(model));
-        glUniformMatrix4fv(v, 1, GL_FALSE, glm::value_ptr(view));
-        glUniformMatrix4fv(p, 1, GL_FALSE, glm::value_ptr(proj));
+        red.Use();
         t.Draw();
-        
+        s.Use();
+        q.Draw();
       w.SwapBuffers();
   }
   
