@@ -41,4 +41,18 @@ void Window::Event(){
     }  
   }
 }
+
+int Window::FPS(int fps){
+  int last;
+  if(fps == 0){
+    start = SDL_GetTicks();
+  }else{
+    delta = SDL_GetTicks() - start;
+    if(delta < 1000/fps){
+      SDL_Delay(1000/fps - delta);
+    }
+  }
+  delta = SDL_GetTicks() - start;
+  return delta;
+}
   

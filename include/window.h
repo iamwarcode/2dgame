@@ -15,6 +15,10 @@ class Window{
     SDL_Window    *window;
     SDL_GLContext context;
     SDL_Event e;
+    
+    int start;
+    int delta;
+    
   public:
     Window(int width, int height, const std::string& title);
     ~Window();
@@ -23,6 +27,7 @@ class Window{
     void SetTitle(const std::string& title);
     
     void Event();
+    int FPS(int fps);
     
     int running;
 };

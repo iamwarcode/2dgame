@@ -21,7 +21,7 @@ int main(int argc, char *argv[]){
   Shader s("../shaders/basic");
   Shader red("../shaders/red");
   Mesh t,q;
-  Music music("../assets/music/always.mp3");
+  Music music("../assets/music/rainbow.mp3");
   
   music.Play();
   
@@ -45,6 +45,7 @@ int main(int argc, char *argv[]){
   proj = glm::perspective(45.0f, 600.0f/450.0f, 1.0f ,10.0f);
   
   while(w.running){
+      w.FPS(0);
       w.Event();
       w.Clear(0, 0.5, 0.5,1);
         red.Use();
@@ -52,6 +53,7 @@ int main(int argc, char *argv[]){
         s.Use();
         q.Draw();
       w.SwapBuffers();
+      std::cerr<<"fps = "<<1000/w.FPS(60)<<std::endl;
   }
   
   return 0;
