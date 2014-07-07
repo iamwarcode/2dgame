@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
   music.Play();
   
   t.Quad(0,0,2,2);
-  q.Quad(0,0,0.5, 0.5);
+  
   glm::mat4 model;
   glm::mat4 view;
   glm::mat4 proj;
@@ -43,17 +43,18 @@ int main(int argc, char *argv[]){
   
   
   proj = glm::perspective(45.0f, 600.0f/450.0f, 1.0f ,10.0f);
-  
+  float delta = 0;
   while(w.running){
       w.FPS(0);
       w.Event();
       w.Clear(0, 0.5, 0.5,1);
         red.Use();
+        q.Quad(delta, delta ,0.5, 0.5);
         t.Draw();
         s.Use();
         q.Draw();
       w.SwapBuffers();
-      std::cerr<<"fps = "<<1000/w.FPS(60)<<std::endl;
+      delta = delta + w.FPS(60)/1000.0f;
   }
   
   return 0;
