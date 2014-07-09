@@ -43,6 +43,7 @@ void Window::Event(){
 }
 
 int Window::FPS(int fps){
+  //TODO remove this and make it according to gameprogrammingpatterns
   int last;
   if(fps == 0){
     start = SDL_GetTicks();
